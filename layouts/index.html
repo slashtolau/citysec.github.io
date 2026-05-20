@@ -15,7 +15,10 @@
   <section class="section dates" id="dates">
     <div class="section-heading">
       <h2>{{ .Site.Params.meetupTitle }} {{ $meetups.year }}</h2>
-      <p>{{ $meetups.location_name }}, {{ $meetups.location_address }}</p>
+      <p>
+        <a href="{{ $meetups.location_map_url }}" rel="noopener noreferrer" target="_blank">{{ $meetups.location_name }}, {{ $meetups.location_address }}</a>
+        &middot; from {{ $meetups.start_time }}
+      </p>
     </div>
 
     <ul class="notes" aria-label="Event notes">
@@ -33,6 +36,7 @@
         <article class="card" role="listitem">
           <h3>{{ .quarter }}</h3>
           <p>{{ .date }}</p>
+          <p class="card-time">{{ $meetups.start_time }} →</p>
         </article>
       {{ end }}
     </div>
@@ -47,6 +51,18 @@
       <a href="https://www.linkedin.com/groups/12139866/" rel="noopener noreferrer" target="_blank">CitySec Aarhus LinkedIn group</a>
       to stay in the loop.
     </p>
+  </section>
+
+  <section class="section ethos" id="format">
+    <h2>The CitySec format</h2>
+    <ul class="ethos-list">
+      <li>No membership, no dues, no cover charge.</li>
+      <li>No corporate sponsorship, no vendor pitches.</li>
+      <li>No recruiter pitches.</li>
+      <li>No RSVP, no agenda, no talks.</li>
+      <li>Publicly announced and open to all security practitioners.</li>
+    </ul>
+    <p>Just security people, drinks, and conversation. First time? Look for the group at the bar — and if you can't spot us, ask the bartender for "CitySec".</p>
   </section>
 
   <section class="section communities" id="communities">
@@ -89,6 +105,11 @@
           "addressLocality": "{{ $meetups.location_locality }}",
           "postalCode": "{{ $meetups.location_postal }}",
           "addressCountry": "{{ $meetups.location_country }}"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": {{ $meetups.location_lat }},
+          "longitude": {{ $meetups.location_lng }}
         }
       },
       "organizer": {

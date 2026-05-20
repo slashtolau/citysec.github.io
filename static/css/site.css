@@ -291,3 +291,30 @@ footer {
     grid-template-columns: 1fr;
   }
 }
+
+.card-time {
+  color: var(--ink-mute);
+  font-family: var(--mono);
+  font-size: 0.85rem;
+  margin-top: 0.25rem;
+}
+
+.section.ethos .ethos-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.25rem 0;
+  display: grid;
+  gap: 0.4rem;
+}
+
+.section.ethos .ethos-list li {
+  padding-left: 1.25rem;
+  position: relative;
+}
+
+.section.ethos .ethos-list li::before {
+  content: "—";
+  position: absolute;
+  left: 0;
+  color: var(--ink-mute);
+}

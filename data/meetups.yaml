@@ -4,6 +4,10 @@ location_address: Nicoline Kochs Plads 31, 8000 Aarhus
 location_locality: Aarhus
 location_postal: "8000"
 location_country: DK
+location_lat: 56.1645
+location_lng: 10.2228
+location_map_url: https://www.google.com/maps/search/?api=1&query=Nicolinehus+Aarhus
+start_time: "16:00"
 notes:
   - No tickets required. Just show up.
   - We start at 16:00 with drinks and snacks.

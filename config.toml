@@ -3,8 +3,10 @@ languageCode = "en-us"
 title = "CitySec Aarhus"
 disableKinds = ["taxonomy", "term", "RSS"]
 enableRobotsTXT = true
+disableHugoGeneratorInject = true
 
 [params]
   meetupTitle = "Aarhus CitySec Dates"
   reminderEmail = "tolau@protonmail.com"
   description = "CitySec Aarhus is an informal, free quarterly meetup for security professionals in Aarhus, Denmark. No tickets, no signup — just show up."
+  ogImage = "/og-image.png"
