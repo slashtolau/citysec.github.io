@@ -1,0 +1,10 @@
+items:
+  - name: OWASP Aarhus Chapter
+    description: OWASP is a worldwide free and open community focused on improving the security of application software.
+    url: https://owasp.org/www-chapter-aarhus/
+  - name: VSEC
+    description: Danish non-profit infosec community working to unify local infosec groups through a shared platform.
+    url: https://vsec.dk/
+  - name: BSides Copenhagen
+    description: The BSides Copenhagen conference is organized by the Danish non-profit association Foreningen BSides Kobenhavn.
+    url: https://bsideskbh.dk/

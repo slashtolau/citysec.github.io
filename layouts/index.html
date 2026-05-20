@@ -1,0 +1,68 @@
+{{ define "main" }}
+{{ $meetups := .Site.Data.meetups }}
+{{ $communities := .Site.Data.communities.items }}
+<header class="hero" id="top">
+  <div class="hero-pattern" aria-hidden="true"></div>
+  <div class="hero-content">
+    <p class="eyebrow">Aarhus Security Meetup</p>
+    <h1>CitySec Aarhus</h1>
+    <p class="lede">Informal meetups for like-minded security professionals. No sign-up needed.</p>
+    <a class="btn" href="#dates">View {{ $meetups.year }} dates</a>
+  </div>
+</header>
+
+<main>
+  <section class="section dates" id="dates">
+    <div class="section-heading">
+      <h2>{{ .Site.Params.meetupTitle }} {{ $meetups.year }}</h2>
+      <p>{{ $meetups.location_name }}, {{ $meetups.location_address }}</p>
+    </div>
+
+    <ul class="notes" aria-label="Event notes">
+      {{ range $meetups.notes }}
+        <li>{{ . }}</li>
+      {{ end }}
+      <li>
+        Email <a href="mailto:{{ $.Site.Params.reminderEmail }}?subject=CitySec%20reminder">{{ $.Site.Params.reminderEmail }}</a>
+        with the subject "CitySec reminder" to get reminders.
+      </li>
+    </ul>
+
+    <div class="cards" role="list">
+      {{ range $meetups.quarters }}
+        <article class="card" role="listitem">
+          <h3>{{ .quarter }}</h3>
+          <p>{{ .date }}</p>
+        </article>
+      {{ end }}
+    </div>
+  </section>
+
+  <section class="section about" id="about">
+    <h2>About</h2>
+    <p>CitySec is an unaffiliated meetup format where local security practitioners connect over practical conversations.</p>
+    <p>Registration is not required. Show up, talk security, and enjoy the evening.</p>
+    <p>
+      Read more about CitySec meetups
+      <a href="https://www.reddit.com/r/netsec/wiki/meetups/citysec" rel="noopener noreferrer" target="_blank">here</a>.
+    </p>
+  </section>
+
+  <section class="section communities" id="communities">
+    <h2>Other Communities You Might Like</h2>
+    <div class="community-grid" role="list">
+      {{ range $communities }}
+        <article class="community" role="listitem">
+          <h3>{{ .name }}</h3>
+          <p>{{ .description }}</p>
+          <a href="{{ .url }}" rel="noopener noreferrer" target="_blank">Website</a>
+        </article>
+      {{ end }}
+    </div>
+  </section>
+</main>
+
+<footer>
+  <a href="#top">Back to top</a>
+</footer>
+{{ end }}

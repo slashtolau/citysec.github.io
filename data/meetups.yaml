@@ -1,0 +1,16 @@
+year: 2026
+location_name: Nicolinehus
+location_address: Nicoline Kochs Plads 31, 8000 Aarhus
+notes:
+  - No tickets required. Just show up.
+  - We start at 16:00 with drinks and snacks.
+  - Dinner whenever it fits you.
+quarters:
+  - quarter: Q1
+    date: Wednesday 25.02.26
+  - quarter: Q2
+    date: Wednesday 20.05.26
+  - quarter: Q3
+    date: Wednesday 07.10.26
+  - quarter: Q4
+    date: Wednesday 18.11.26

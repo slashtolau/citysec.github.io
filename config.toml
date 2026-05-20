@@ -1,0 +1,8 @@
+baseURL = "https://citysec.dk/"
+languageCode = "en-us"
+title = "CitySec Aarhus"
+disableKinds = ["taxonomy", "term", "RSS", "sitemap", "robotsTXT"]
+
+[params]
+  meetupTitle = "Aarhus CitySec Dates"
+  reminderEmail = "tolau@protonmail.com"
