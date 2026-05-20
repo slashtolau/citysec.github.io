@@ -63,6 +63,26 @@
       <li>Publicly announced and open to all security practitioners.</li>
     </ul>
     <p>Just security people, drinks, and conversation. First time? Look for the group at the bar — and if you can't spot us, ask the bartender for "CitySec".</p>
+    <p class="organizer">Organized by Tobias Evar Lauridsen.</p>
+  </section>
+
+  <section class="section venue" id="venue">
+    <h2>Find us</h2>
+    <p>{{ $meetups.location_name }}, {{ $meetups.location_address }}</p>
+    {{ $lat := $meetups.location_lat }}
+    {{ $lng := $meetups.location_lng }}
+    {{ $bbox := printf "%.4f,%.4f,%.4f,%.4f" (sub $lng 0.005) (sub $lat 0.003) (add $lng 0.005) (add $lat 0.003) }}
+    <div class="venue-map">
+      <iframe
+        title="Map of {{ $meetups.location_name }}"
+        src="https://www.openstreetmap.org/export/embed.html?bbox={{ $bbox }}&layer=mapnik&marker={{ $lat }},{{ $lng }}"
+        loading="lazy"
+        referrerpolicy="no-referrer"
+        allowfullscreen></iframe>
+      <small>
+        <a href="https://www.openstreetmap.org/?mlat={{ $lat }}&mlon={{ $lng }}#map=17/{{ $lat }}/{{ $lng }}" target="_blank" rel="noopener noreferrer">View larger map on OpenStreetMap</a>
+      </small>
+    </div>
   </section>
 
   <section class="section communities" id="communities">
@@ -112,11 +132,17 @@
           "longitude": {{ $meetups.location_lng }}
         }
       },
-      "organizer": {
-        "@type": "Organization",
-        "name": "{{ $.Site.Title }}",
-        "url": "{{ $.Site.BaseURL }}"
-      },
+      "organizer": [
+        {
+          "@type": "Organization",
+          "name": "{{ $.Site.Title }}",
+          "url": "{{ $.Site.BaseURL }}"
+        },
+        {
+          "@type": "Person",
+          "name": "Tobias Evar Lauridsen"
+        }
+      ],
       "description": "Informal CitySec security meetup in Aarhus. No tickets, no signup — just show up."
     }
     {{ end }}

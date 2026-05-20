@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+<head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   
@@ -9,22 +9,22 @@
   
   <meta name="description" content="CitySec Aarhus is an informal, free quarterly meetup for security professionals in Aarhus, Denmark. No tickets, no signup — just show up.">
   <meta name="robots" content="index,follow">
-  <link rel="canonical" href="http://localhost:1313/">
+  <link rel="canonical" href="https://citysec.dk/">
 
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="CitySec Aarhus">
   <meta property="og:title" content="CitySec Aarhus">
   <meta property="og:description" content="CitySec Aarhus is an informal, free quarterly meetup for security professionals in Aarhus, Denmark. No tickets, no signup — just show up.">
-  <meta property="og:url" content="http://localhost:1313/">
+  <meta property="og:url" content="https://citysec.dk/">
   <meta property="og:locale" content="en_US">
-  <meta property="og:image" content="http://localhost:1313/og-image.png">
+  <meta property="og:image" content="https://citysec.dk/og-image.png">
 
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="CitySec Aarhus">
   <meta name="twitter:description" content="CitySec Aarhus is an informal, free quarterly meetup for security professionals in Aarhus, Denmark. No tickets, no signup — just show up.">
-  <meta name="twitter:image" content="http://localhost:1313/og-image.png">
+  <meta name="twitter:image" content="https://citysec.dk/og-image.png">
 
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self'; img-src 'self' data:; connect-src 'self'; font-src 'self'; frame-ancestors 'none'; object-src 'none'; base-uri 'self'; form-action 'self'">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self'; img-src 'self' data:; connect-src 'self'; font-src 'self'; frame-src https://www.openstreetmap.org; frame-ancestors 'none'; object-src 'none'; base-uri 'self'; form-action 'self'">
   <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
   <meta http-equiv="X-Content-Type-Options" content="nosniff">
   <title>CitySec Aarhus</title>
@@ -38,11 +38,15 @@
     "@context": "https://schema.org",
     "@type": "Organization",
     "name": "CitySec Aarhus",
-    "url": "http:\/\/localhost:1313\/",
+    "url": "https:\/\/citysec.dk\/",
     "description": "CitySec Aarhus is an informal, free quarterly meetup for security professionals in Aarhus, Denmark. No tickets, no signup — just show up.",
     "areaServed": {
       "@type": "City",
       "name": "Aarhus"
+    },
+    "founder": {
+      "@type": "Person",
+      "name": "Tobias Evar Lauridsen"
     },
     "sameAs": [
       "https://www.linkedin.com/groups/12139866/"
@@ -138,11 +142,37 @@
       <li>Publicly announced and open to all security practitioners.</li>
     </ul>
     <p>Just security people, drinks, and conversation. First time? Look for the group at the bar — and if you can't spot us, ask the bartender for "CitySec".</p>
+    <p class="organizer">Organized by Tobias Evar Lauridsen.</p>
+  </section>
+
+  <section class="section venue" id="venue">
+    <h2>Find us</h2>
+    <p>Nicolinehus, Nicoline Kochs Plads 31, 8000 Aarhus</p>
+    
+    
+    
+    <div class="venue-map">
+      <iframe
+        title="Map of Nicolinehus"
+        src="https://www.openstreetmap.org/export/embed.html?bbox=10.2178%2c56.1615%2c10.2278%2c56.1675&layer=mapnik&marker=56.1645,10.2228"
+        loading="lazy"
+        referrerpolicy="no-referrer"
+        allowfullscreen></iframe>
+      <small>
+        <a href="https://www.openstreetmap.org/?mlat=56.1645&mlon=10.2228#map=17/56.1645/10.2228" target="_blank" rel="noopener noreferrer">View larger map on OpenStreetMap</a>
+      </small>
+    </div>
   </section>
 
   <section class="section communities" id="communities">
     <h2>Other Communities You Might Like</h2>
     <div class="community-grid" role="list">
+      
+        <article class="community" role="listitem">
+          <h3>BSides Aarhus</h3>
+          <p>Annual community-driven security conference in Aarhus organised by local practitioners — talks, workshops, and networking.</p>
+          <a href="https://bsidesaarhus.dk/" rel="noopener noreferrer" target="_blank">Website</a>
+        </article>
       
         <article class="community" role="listitem">
           <h3>OWASP Aarhus Chapter</h3>
@@ -199,11 +229,17 @@
           "longitude":  10.2228 
         }
       },
-      "organizer": {
-        "@type": "Organization",
-        "name": "CitySec Aarhus",
-        "url": "http:\/\/localhost:1313\/"
-      },
+      "organizer": [
+        {
+          "@type": "Organization",
+          "name": "CitySec Aarhus",
+          "url": "https:\/\/citysec.dk\/"
+        },
+        {
+          "@type": "Person",
+          "name": "Tobias Evar Lauridsen"
+        }
+      ],
       "description": "Informal CitySec security meetup in Aarhus. No tickets, no signup — just show up."
     }
     
@@ -231,11 +267,17 @@
           "longitude":  10.2228 
         }
       },
-      "organizer": {
-        "@type": "Organization",
-        "name": "CitySec Aarhus",
-        "url": "http:\/\/localhost:1313\/"
-      },
+      "organizer": [
+        {
+          "@type": "Organization",
+          "name": "CitySec Aarhus",
+          "url": "https:\/\/citysec.dk\/"
+        },
+        {
+          "@type": "Person",
+          "name": "Tobias Evar Lauridsen"
+        }
+      ],
       "description": "Informal CitySec security meetup in Aarhus. No tickets, no signup — just show up."
     }
     
@@ -263,11 +305,17 @@
           "longitude":  10.2228 
         }
       },
-      "organizer": {
-        "@type": "Organization",
-        "name": "CitySec Aarhus",
-        "url": "http:\/\/localhost:1313\/"
-      },
+      "organizer": [
+        {
+          "@type": "Organization",
+          "name": "CitySec Aarhus",
+          "url": "https:\/\/citysec.dk\/"
+        },
+        {
+          "@type": "Person",
+          "name": "Tobias Evar Lauridsen"
+        }
+      ],
       "description": "Informal CitySec security meetup in Aarhus. No tickets, no signup — just show up."
     }
     
@@ -295,11 +343,17 @@
           "longitude":  10.2228 
         }
       },
-      "organizer": {
-        "@type": "Organization",
-        "name": "CitySec Aarhus",
-        "url": "http:\/\/localhost:1313\/"
-      },
+      "organizer": [
+        {
+          "@type": "Organization",
+          "name": "CitySec Aarhus",
+          "url": "https:\/\/citysec.dk\/"
+        },
+        {
+          "@type": "Person",
+          "name": "Tobias Evar Lauridsen"
+        }
+      ],
       "description": "Informal CitySec security meetup in Aarhus. No tickets, no signup — just show up."
     }
     

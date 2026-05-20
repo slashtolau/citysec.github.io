@@ -1,4 +1,7 @@
 items:
+  - name: BSides Aarhus
+    description: Annual community-driven security conference in Aarhus organised by local practitioners — talks, workshops, and networking.
+    url: https://bsidesaarhus.dk/
   - name: OWASP Aarhus Chapter
     description: OWASP is a worldwide free and open community focused on improving the security of application software.
     url: https://owasp.org/www-chapter-aarhus/
