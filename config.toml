@@ -1,8 +1,10 @@
 baseURL = "https://citysec.dk/"
 languageCode = "en-us"
 title = "CitySec Aarhus"
-disableKinds = ["taxonomy", "term", "RSS", "sitemap", "robotsTXT"]
+disableKinds = ["taxonomy", "term", "RSS"]
+enableRobotsTXT = true
 
 [params]
   meetupTitle = "Aarhus CitySec Dates"
   reminderEmail = "tolau@protonmail.com"
+  description = "CitySec Aarhus is an informal, free quarterly meetup for security professionals in Aarhus, Denmark. No tickets, no signup — just show up."

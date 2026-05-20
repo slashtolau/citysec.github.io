@@ -43,8 +43,9 @@
     <p>CitySec is an unaffiliated meetup format where local security practitioners connect over practical conversations.</p>
     <p>Registration is not required. Show up, talk security, and enjoy the evening.</p>
     <p>
-      Read more about CitySec meetups
-      <a href="https://www.reddit.com/r/netsec/wiki/meetups/citysec" rel="noopener noreferrer" target="_blank">here</a>.
+      Join the
+      <a href="https://www.linkedin.com/groups/12139866/" rel="noopener noreferrer" target="_blank">CitySec Aarhus LinkedIn group</a>
+      to stay in the loop.
     </p>
   </section>
 
@@ -65,4 +66,40 @@
 <footer>
   <a href="#top">Back to top</a>
 </footer>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {{ range $i, $q := $meetups.quarters }}
+    {{ if $i }},{{ end }}
+    {
+      "@type": "Event",
+      "name": "CitySec Aarhus {{ $q.quarter }} {{ $meetups.year }}",
+      "startDate": "{{ $q.startDateTime }}",
+      "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+      "eventStatus": "https://schema.org/EventScheduled",
+      "isAccessibleForFree": true,
+      "location": {
+        "@type": "Place",
+        "name": "{{ $meetups.location_name }}",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Nicoline Kochs Plads 31",
+          "addressLocality": "{{ $meetups.location_locality }}",
+          "postalCode": "{{ $meetups.location_postal }}",
+          "addressCountry": "{{ $meetups.location_country }}"
+        }
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "{{ $.Site.Title }}",
+        "url": "{{ $.Site.BaseURL }}"
+      },
+      "description": "Informal CitySec security meetup in Aarhus. No tickets, no signup — just show up."
+    }
+    {{ end }}
+  ]
+}
+</script>
 {{ end }}
