@@ -3,7 +3,8 @@
 
 # Hugo
 .hugo_build.lock
-/resources/_gen/
+/public/
+/resources/
 
 # Editors / IDEs
 .vscode/

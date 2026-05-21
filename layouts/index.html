@@ -29,14 +29,25 @@
         Email <a href="mailto:{{ $.Site.Params.reminderEmail }}?subject=CitySec%20reminder">{{ $.Site.Params.reminderEmail }}</a>
         with the subject "CitySec reminder" to get reminders.
       </li>
+      {{ $allIcs := partial "ics.txt" (dict "quarters" $meetups.quarters "meetups" $meetups "year" $meetups.year "durationHrs" 4 "baseURL" $.Site.BaseURL) }}
+      {{ $allIcsRes := resources.FromString (printf "calendar/citysec-aarhus-%d.ics" $meetups.year) $allIcs }}
+      <li>
+        Add all {{ $meetups.year }} dates to your calendar:
+        <a href="{{ $allIcsRes.RelPermalink }}" download>citysec-aarhus-{{ $meetups.year }}.ics</a>
+      </li>
     </ul>
 
     <div class="cards" role="list">
       {{ range $meetups.quarters }}
+        {{ $ics := partial "ics.txt" (dict "quarters" (slice .) "meetups" $meetups "year" $meetups.year "durationHrs" 4 "baseURL" $.Site.BaseURL) }}
+        {{ $icsRes := resources.FromString (printf "calendar/citysec-aarhus-%s-%d.ics" (lower .quarter) $meetups.year) $ics }}
         <article class="card" role="listitem">
           <h3>{{ .quarter }}</h3>
           <p>{{ .date }}</p>
           <p class="card-time">{{ $meetups.start_time }} →</p>
+          <p class="card-cal">
+            <a href="{{ $icsRes.RelPermalink }}" download aria-label="Download calendar invite for {{ .quarter }} {{ $meetups.year }}">📅 Add to calendar</a>
+          </p>
         </article>
       {{ end }}
     </div>

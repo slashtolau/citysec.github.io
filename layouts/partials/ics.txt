@@ -1,0 +1,29 @@
+{{- /*
+  Builds an iCalendar (RFC 5545) string for one or more meetup quarters.
+  Params:
+    quarters    - slice of quarter entries (each with .quarter and .startDateTime)
+    meetups     - the full meetups data map (for location etc.)
+    year        - the year
+    durationHrs - event duration in hours
+    baseURL     - site base URL
+*/ -}}
+{{- $meetups := .meetups -}}
+{{- $year := .year -}}
+{{- $duration := time.ParseDuration (printf "%dh" .durationHrs) -}}
+{{- $location := printf "%s, %s, %s" $meetups.location_name $meetups.location_address $meetups.location_country -}}
+{{- $escLoc := $location | replaceRE "\\\\" "\\\\\\\\" | replaceRE ";" "\\;" | replaceRE "," "\\," -}}
+{{- $descRaw := printf "Informal CitySec security meetup in Aarhus. No tickets, no signup — just show up.\n\nVenue: %s\nMap: %s" $location $meetups.location_map_url -}}
+{{- $escDesc := $descRaw | replaceRE "\\\\" "\\\\\\\\" | replaceRE ";" "\\;" | replaceRE "," "\\," | replaceRE "\n" "\\n" -}}
+{{- $dtstamp := now.UTC.Format "20060102T150405Z" -}}
+{{- $lines := slice "BEGIN:VCALENDAR" "VERSION:2.0" "PRODID:-//CitySec Aarhus//citysec.dk//EN" "CALSCALE:GREGORIAN" "METHOD:PUBLISH" -}}
+{{- range .quarters -}}
+  {{- $start := time.AsTime .startDateTime -}}
+  {{- $end := $start.Add $duration -}}
+  {{- $dtstart := $start.UTC.Format "20060102T150405Z" -}}
+  {{- $dtend := $end.UTC.Format "20060102T150405Z" -}}
+  {{- $uid := printf "citysec-aarhus-%s-%d@citysec.dk" (lower .quarter) $year -}}
+  {{- $summary := printf "CitySec Aarhus %s %d" .quarter $year -}}
+  {{- $lines = $lines | append "BEGIN:VEVENT" (printf "UID:%s" $uid) (printf "DTSTAMP:%s" $dtstamp) (printf "DTSTART:%s" $dtstart) (printf "DTEND:%s" $dtend) (printf "SUMMARY:%s" $summary) (printf "LOCATION:%s" $escLoc) (printf "DESCRIPTION:%s" $escDesc) (printf "GEO:%v;%v" $meetups.location_lat $meetups.location_lng) (printf "URL:%s" $.baseURL) "STATUS:CONFIRMED" "TRANSP:OPAQUE" "END:VEVENT" -}}
+{{- end -}}
+{{- $lines = $lines | append "END:VCALENDAR" "" -}}
+{{- delimit $lines "\r\n" -}}

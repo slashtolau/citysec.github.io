@@ -299,6 +299,23 @@ footer {
   margin-top: 0.25rem;
 }
 
+.card-cal {
+  margin-top: 0.75rem;
+  font-family: var(--mono);
+  font-size: 0.85rem;
+}
+
+.card-cal a {
+  color: var(--brand);
+  text-decoration: none;
+  border-bottom: 1px dashed var(--line-strong);
+  padding-bottom: 1px;
+}
+
+.card-cal a:hover {
+  border-bottom-color: var(--brand);
+}
+
 .section.ethos .ethos-list {
   list-style: none;
   padding: 0;
